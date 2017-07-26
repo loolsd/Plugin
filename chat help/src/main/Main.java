@@ -8,11 +8,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import comandos.Gamemode;
+import comandos.TPR;
 import evento.Prédefinições;
 
 public class Main extends JavaPlugin{
-	
 	public static org.bukkit.plugin.Plugin me;
+	
 	
 	@Override
 	public void onEnable() {
@@ -20,6 +22,9 @@ public class Main extends JavaPlugin{
 		
 		//REGISTRAR EVENTO
 		Bukkit.getServer().getPluginManager().registerEvents(new Prédefinições(), this);
+		 this.getCommand("tpr").setExecutor(new TPR());
+		 this.getCommand("gm").setExecutor(new Gamemode());
+		
 		//AOLIGAR
 		System.out.print("§3Ligado");
 		this.me = this;
@@ -31,14 +36,15 @@ public class Main extends JavaPlugin{
 		System.out.print("§4Desligado");
 		super.onDisable();
 	}
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
+	public boolean 
+	onCommand(CommandSender sender, Command cmd, String label, String[] args){
         if(cmd.getName().equalsIgnoreCase("LOOLSD")){
             Player player = (Player) sender;
             player.sendMessage(ChatColor.YELLOW + "Você está sendo teleportado" + ChatColor.DARK_GREEN + "28" + ChatColor.YELLOW + "segundos.");
             player.teleport(new Location(Bukkit.getWorld("world"), 0, 69, 0));
             return true;
         } 
-        return true;}
+        return false;}
 	public static Main plugin;
 
 

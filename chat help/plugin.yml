@@ -2,4 +2,10 @@ main: main.Main
 name: PLteste
 author: loolsd
 version: 1.0
-commands: 
+commands:
+  TPR:
+    description: L d+
+    usage: /TPR
+  GM:
+    description: L d+
+    usage: /GM

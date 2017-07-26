@@ -1,6 +1,7 @@
 package evento;
 
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,12 +15,18 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerEggThrowEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
 
 public class Prédefinições implements Listener {
 	//Permissões
+	   @EventHandler
+	   public void Aoentrar(PlayerJoinEvent j) {
+		   Player  p = j.getPlayer();
+		   p.getPlayer().getLocation();
+	   }
 	
 	   @EventHandler
        public void onBlockPlaceEvent(BlockPlaceEvent e) {
