@@ -9,3 +9,6 @@ commands:
   GM:
     description: L d+
     usage: /GM
+  INV:
+    description: l d+
+    usage: /INV

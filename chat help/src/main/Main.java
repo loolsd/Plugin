@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import comandos.Gamemode;
+import comandos.INV;
 import comandos.TPR;
 import evento.Prédefinições;
 
@@ -24,6 +25,7 @@ public class Main extends JavaPlugin{
 		Bukkit.getServer().getPluginManager().registerEvents(new Prédefinições(), this);
 		 this.getCommand("tpr").setExecutor(new TPR());
 		 this.getCommand("gm").setExecutor(new Gamemode());
+		 this.getCommand("inv").setExecutor(new INV());
 		
 		//AOLIGAR
 		System.out.print("§3Ligado");
