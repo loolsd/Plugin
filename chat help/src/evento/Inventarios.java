@@ -1,7 +1,6 @@
 package evento;
 import org.bukkit.block.Chest;
 import org.bukkit.block.DoubleChest;
-
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -18,10 +17,9 @@ implements Listener{
 	        	e.setCancelled(true);}
 	           
 	        }
-	       
-	    
-		
-	}
+	 }
+	
+	 
 	
 	
 

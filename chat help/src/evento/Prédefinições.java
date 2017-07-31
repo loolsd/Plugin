@@ -3,7 +3,6 @@ package evento;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -14,7 +13,6 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.player.PlayerEggThrowEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.weather.ThunderChangeEvent;
@@ -37,9 +35,7 @@ public class Prédefinições
 	
 	   @EventHandler
        public void ColocarBloco(BlockPlaceEvent e) {
-               Block block = e.getBlock();
                Player p = e.getPlayer();
-               Location loc = block.getLocation();
                Location ploc = p.getPlayer().getLocation();
                p.playSound(ploc, Sound.LAVA_POP, 3.0f, 0.5f);
                e.setCancelled(true);}
@@ -113,7 +109,6 @@ public class Prédefinições
 	 @EventHandler
 	    public void onPlayerBreakBlock(BlockBreakEvent event) {
 	        Player p = event.getPlayer();
-	        Block b = event.getBlock();
 	        Location loc = p.getPlayer().getLocation();
 	        p.playSound(loc, Sound.LAVA_POP, 1.0f, 0.5f);
 	      

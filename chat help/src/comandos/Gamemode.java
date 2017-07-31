@@ -12,7 +12,6 @@ public class Gamemode
   {
 
 	    Player player = (Player)sender;
-	    Player jogador = (Player)sender;
 	    if (cmd.getName().equalsIgnoreCase("gm"))
 	    {
 	      
