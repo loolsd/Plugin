@@ -2,6 +2,7 @@ package evento;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,14 +14,20 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
+import org.bukkit.inventory.ItemStack;
+
+
 
 
 public class Prédefinições 
-   implements Listener {
+   implements Listener  {
 	//Permissões
 	   @EventHandler
 	   public void Aoentrar(PlayerJoinEvent j) {
@@ -31,6 +38,7 @@ public class Prédefinições
 		   p.playSound(loc, Sound.EXPLODE, 3.0f, 0.5f );
 		   p.teleport(new Location(Bukkit.getWorld("world"), 13, 4, 19));
 		   p.getInventory().clear();
+		   p.getInventory().setItem(4,new ItemStack(Material.COMPASS));
 	   }
 	
 	   @EventHandler
@@ -39,6 +47,22 @@ public class Prédefinições
                Location ploc = p.getPlayer().getLocation();
                p.playSound(ploc, Sound.LAVA_POP, 3.0f, 0.5f);
                e.setCancelled(true);}
+	   @EventHandler
+	    public void invDrag(InventoryDragEvent e) {
+	        e.setCancelled(true);
+	    }
+	    @EventHandler
+	    public void dropar(PlayerDropItemEvent e) {
+	        e.setCancelled(true);
+	    }
+	   // @EventHandler projeto futuro
+	   // public void mover(PlayerMoveEvent e) {
+	    //	e.setCancelled(true);
+	    	
+	    @EventHandler
+	    public void invClick(InventoryClickEvent e) {
+	        e.setCancelled(true);
+	    }
 
 	 @EventHandler
 	    public void enderpearl(PlayerInteractEvent e) {
@@ -151,6 +175,7 @@ public class Prédefinições
 	 
 	  if(event.getLocation().getWorld().getName() != "allowed-world") {
 	  if(event.getSpawnReason() != CreatureSpawnEvent.SpawnReason.CUSTOM) {
+	  System.out.print("Mobs n spawnados");
 	  event.setCancelled(true);
 	  }
 	  }

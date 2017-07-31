@@ -14,6 +14,7 @@ import comandos.Gamemode;
 import comandos.INV;
 import comandos.TPR;
 import evento.Inventarios;
+import evento.MeuInv;
 import evento.Prédefinições;
 
 public class Main extends JavaPlugin implements Listener{
@@ -30,6 +31,7 @@ public class Main extends JavaPlugin implements Listener{
 		//REGISTRAR EVENTO
 		Bukkit.getServer().getPluginManager().registerEvents(new Prédefinições(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new Inventarios(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new MeuInv(), this);
 		 this.getCommand("tpr").setExecutor(new TPR());
 		 this.getCommand("gm").setExecutor(new Gamemode());
 		 this.getCommand("inv").setExecutor(new INV());
