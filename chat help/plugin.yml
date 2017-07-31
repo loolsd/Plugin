@@ -12,3 +12,9 @@ commands:
   INV:
     description: l d+
     usage: /INV
+  HAT:
+    description: l d+
+    usage: /HAT
+  FLY:
+    description: l d+
+    usage: /fly 

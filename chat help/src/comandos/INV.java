@@ -1,5 +1,6 @@
 package comandos;
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,7 +21,7 @@ public class INV
     if (cmd.getName().equalsIgnoreCase("inv"))
     {
       {
-        sender.sendMessage("Escolha o nome do jogador!");
+        sender.sendMessage(Color.WHITE +"Escolha o nome do jogador!");
         if (args.length > 0)
         {
           Player player = Bukkit.getPlayer(args[0]);

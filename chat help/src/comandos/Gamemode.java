@@ -15,14 +15,10 @@ public class Gamemode
 	    Player jogador = (Player)sender;
 	    if (cmd.getName().equalsIgnoreCase("gm"))
 	    {
-	      if (!jogador.hasPermission("comando.gm"))
-	      {
-	        jogador.sendMessage("");
-	        return true;
-	      }
+	      
 	      if (args.length != 1)
 	      {
-	        player.sendMessage("Use /Gm (0)(1)(2)");
+	        player.sendMessage("§3§lUse /Gm (0)(1)(2)");
 	        return true;
 	      }
 	      if (args.length == 1)
@@ -30,21 +26,24 @@ public class Gamemode
 	        if (args[0].equalsIgnoreCase("0"))
 	        {
 	          player.setGameMode(GameMode.SURVIVAL);
-	          player.sendMessage("Gamemode Atualizado");
+	          player.sendMessage("§6Gamemode Atualizado");
 	        }
 	        if (args[0].equalsIgnoreCase("1"))
 	        {
 	          player.setGameMode(GameMode.CREATIVE);
-	          player.sendMessage("Gamemode Atualizado");
+	          player.sendMessage("§6Gamemode Atualizado");
 	        }
 	        if (args[0].equalsIgnoreCase("2"))
 	        {
 	          player.setGameMode(GameMode.ADVENTURE);
-	          player.sendMessage("Gamemode Atualizado");
+	          player.sendMessage("§6Gamemode Atualizado");
 	        }
 	        return true;
 	      }
-	    }
+	    
 	    return false;
-	  }
-	}
+	    }
+		return false;
+	    }
+  }
+	

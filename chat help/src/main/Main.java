@@ -6,14 +6,17 @@ import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import comandos.Fly;
 import comandos.Gamemode;
 import comandos.INV;
 import comandos.TPR;
+import evento.Inventarios;
 import evento.Prédefinições;
 
-public class Main extends JavaPlugin{
+public class Main extends JavaPlugin implements Listener{
 	public static org.bukkit.plugin.Plugin me;
 	
 	
@@ -21,16 +24,25 @@ public class Main extends JavaPlugin{
 	public void onEnable() {
 		plugin = this;
 		
+	{
+		getConfig().options().copyDefaults(true);
+		saveConfig();
 		//REGISTRAR EVENTO
 		Bukkit.getServer().getPluginManager().registerEvents(new Prédefinições(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new Inventarios(), this);
 		 this.getCommand("tpr").setExecutor(new TPR());
 		 this.getCommand("gm").setExecutor(new Gamemode());
 		 this.getCommand("inv").setExecutor(new INV());
+		 this.getCommand("fly").setExecutor(new Fly());
+		 
 		
 		//AOLIGAR
 		System.out.print("§3Ligado");
-		this.me = this;
+		Main.me = this;
+		
 		super.onEnable();
+		}
+	
 		
 	}
 	@Override

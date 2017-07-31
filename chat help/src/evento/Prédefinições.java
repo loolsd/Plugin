@@ -1,5 +1,6 @@
 package evento;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -20,23 +21,31 @@ import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
 
-public class Prédefinições implements Listener {
+public class Prédefinições 
+   implements Listener {
 	//Permissões
 	   @EventHandler
 	   public void Aoentrar(PlayerJoinEvent j) {
 		   Player  p = j.getPlayer();
+		   Location loc = j.getPlayer().getLocation();
+		   j.setJoinMessage("§6Seja bem-vindo_" + "§3" + p.getName());
 		   p.getPlayer().getLocation();
+		   p.playSound(loc, Sound.EXPLODE, 3.0f, 0.5f );
+		   p.teleport(new Location(Bukkit.getWorld("world"), 13, 4, 19));
+		   p.getInventory().clear();
 	   }
 	
 	   @EventHandler
-       public void onBlockPlaceEvent(BlockPlaceEvent e) {
+       public void ColocarBloco(BlockPlaceEvent e) {
                Block block = e.getBlock();
-               Location loc = block.getLocation();
                Player p = e.getPlayer();
+               Location loc = block.getLocation();
+               Location ploc = p.getPlayer().getLocation();
+               p.playSound(ploc, Sound.LAVA_POP, 3.0f, 0.5f);
                e.setCancelled(true);}
 
 	 @EventHandler
-	    public void onPlayerClick(PlayerInteractEvent e) {
+	    public void enderpearl(PlayerInteractEvent e) {
 	        Player p = e.getPlayer();
 	        if ((e.getAction() == Action.RIGHT_CLICK_BLOCK)||(e.getAction() == Action.RIGHT_CLICK_AIR)||(e.getAction() == Action.LEFT_CLICK_BLOCK)||(e.getAction() == Action.LEFT_CLICK_AIR)) {
 	           if(p.getItemInHand().getType().equals(org.bukkit.Material.ENDER_PEARL)){
@@ -103,8 +112,10 @@ public class Prédefinições implements Listener {
 
 	 @EventHandler
 	    public void onPlayerBreakBlock(BlockBreakEvent event) {
-	        Player player = event.getPlayer();
-	        Block block = event.getBlock();
+	        Player p = event.getPlayer();
+	        Block b = event.getBlock();
+	        Location loc = p.getPlayer().getLocation();
+	        p.playSound(loc, Sound.LAVA_POP, 1.0f, 0.5f);
 	      
 	        event.setCancelled(true);
 	    }
