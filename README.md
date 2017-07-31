@@ -1,2 +1,2 @@
 # Plugin
-Atualizado 26/07 13:42.
+Atualizado 31/07 16:19.
